@@ -14,14 +14,22 @@ Share real AgDRs from your projects:
 4. Anonymize any sensitive information
 5. Open a PR with a brief description
 
-### 2. Create Tool Integrations
+### 2. Create Skills
 
-Build integrations for AI tools:
+Build integrations for AI tools by adding to `skills/`:
 
-- **Cursor** - Add to `tools/cursor/`
-- **GitHub Copilot** - Add to `tools/copilot/`
-- **Windsurf** - Add to `tools/windsurf/`
-- **Other AI assistants** - Create new directory
+- **agdr-decide/** - Decision creation skill
+- **agdr-visualize/** - Visualization skill
+- Add new skills following existing patterns
+
+Or add agent setup docs in `docs/`:
+
+- **docs/codex.md** - Codex setup
+- **docs/claude-code.md** - Claude Code setup
+- **docs/cursor.md** - Cursor setup
+- **docs/copilot.md** - Copilot setup
+- **docs/windsurf.md** - Windsurf setup
+- **docs/opencode.md** - OpenCode setup
 
 ### 3. Translations
 
