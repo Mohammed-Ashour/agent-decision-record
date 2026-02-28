@@ -1,6 +1,6 @@
 ---
 name: agdr-decide
-description: Enforce Agent Decision Record (AgDR) workflow in Codex. Use when making a non-trivial technical decision such as selecting libraries/frameworks/tools, choosing implementation patterns, making architecture choices, or resolving explicit comparisons like "X vs Y". Analyze options first, document the decision in docs/agdr/AgDR-NNNN-slug.md, then implement.
+description: Enforce Agent Decision Record (AgDR) workflow. Use when making a non-trivial technical decision such as selecting libraries/frameworks/tools, choosing implementation patterns, making architecture choices, or resolving explicit comparisons like "X vs Y". Analyze options first, document the decision in docs/agdr/AgDR-NNNN-slug.md, then implement.
 ---
 
 # AgDR Decision Gate
@@ -61,7 +61,7 @@ Use this structure:
 ---
 id: AgDR-{NNNN}
 timestamp: {YYYY-MM-DDTHH:MM:SSZ}
-agent: codex
+agent: {agent-name}
 model: {model-id}
 session: {session-id-if-available}
 trigger: {user-prompt | hook | automation | self-initiated}
