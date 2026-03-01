@@ -148,45 +148,60 @@ your-project/
 - PRs can reference AgDRs in the same repo
 - History preserved if project is forked
 
+## Skills
+
+AgDR provides reusable skills for AI coding agents. See [skills/](skills/) for the full set.
+
+| Skill | Purpose |
+|-------|---------|
+| **agdr-decide** | Create new AgDRs when making technical decisions |
+| **agdr-visualize** | Visualize AgDR history (summary + table + Mermaid) |
+
+Install:
+```bash
+# OpenCode
+cp -r skills/* ~/.config/opencode/skills/
+
+# Codex
+cp -r skills/* ~/.codex/skills/
+
+# Claude Code
+cp skills/agdr-decide/SKILL.md .claude/commands/decide.md
+
+# Cursor
+cp skills/agdr-decide/SKILL.md .cursor/rules/agdr.md
+
+# Copilot
+cp skills/agdr-decide/SKILL.md .github/copilot-instructions.md
+
+# Windsurf
+cp skills/agdr-decide/SKILL.md .windsurf/rules/agdr.md
+```
+
+See [skills/README.md](skills/README.md) for full installation per agent.
+
 ## Tools & Integrations
 
 | Tool | Format | Location |
 |------|--------|----------|
-| **Claude Code** | `/decide` skill | [tools/claude-code/](tools/claude-code/) |
-| **Codex** | `SKILL.md` skill folder | [tools/codex/](tools/codex/) |
-| **Cursor** | `.cursor/rules/agdr.mdc` | [tools/cursor/](tools/cursor/) |
-| **GitHub Copilot** | `.github/copilot-instructions.md` + `.instructions.md` | [tools/copilot/](tools/copilot/) |
-| **Windsurf** | `.windsurf/rules/agdr.md` | [tools/windsurf/](tools/windsurf/) |
-| **Any AI** | System prompt | [tools/system-prompts/](tools/system-prompts/) |
-| **Git** | Pre-commit hook | [tools/git-hooks/](tools/git-hooks/) |
+| **Skills** | Portable SKILL.md | [skills/](skills/) |
+| **Setup Docs** | Per-agent guides | [docs/](docs/) |
+| **Examples** | Sample AgDRs | [examples/](examples/) |
 
-### Claude Code
+### Skills
 
-Install as a plugin for the namespaced `/agent-decision-record:decide` command, or copy [commands/decide.md](commands/decide.md) to your project's `.claude/commands/` for the shorter `/decide` name. See [Quick Start](#quick-start) for details.
+Copy the skill folders to your agent's skills directory. See [docs/](docs/) for per-agent setup.
 
-### Codex
+### Visualizing AgDR Flow
 
-Codex skill folder for AgDR decision gating and file generation: [tools/codex/](tools/codex/)
+Use the `agdr-visualize` skill - it contains step-by-step instructions for the agent to generate:
+- **Summary**: Total decisions, breakdown by status and agent
+- **Table**: Quick scanning (ID, Title, Status, Agent, Date)
+- **Mermaid diagram**: Visual relationship of all AgDRs
 
-### Cursor
+Each agent loads the skill and follows the instructions to generate the visualization dynamically.
 
-MDC rule with `alwaysApply: true` for Cursor's modern `.cursor/rules/` format. Also includes legacy `.cursorrules` for backward compatibility: [tools/cursor/](tools/cursor/)
-
-### GitHub Copilot
-
-Repository-wide instructions (`.github/copilot-instructions.md`) plus path-specific instructions for AgDR files (`.github/instructions/agdr.instructions.md`): [tools/copilot/](tools/copilot/)
-
-### Windsurf
-
-Cascade rule with `trigger: always_on` for Windsurf's `.windsurf/rules/` format: [tools/windsurf/](tools/windsurf/)
-
-### System Prompts
-
-Generic prompts for any AI assistant: [tools/system-prompts/](tools/system-prompts/)
-
-### Git Hooks
-
-Pre-commit hooks to enforce AgDR creation: [tools/git-hooks/](tools/git-hooks/)
+See [skills/agdr-visualize/SKILL.md](skills/agdr-visualize/SKILL.md) for the full workflow.
 
 ## Examples
 
